@@ -72,6 +72,10 @@ app.io.on('connection', function(socket){
 	socket.on('size', function( data, session ) {
 		socket.broadcast.emit( 'update_size', data );
 	})
+
+	socket.on('addNote', function( data, session ) {
+		socket.broadcast.emit( 'addNote', data );
+	})
 });
 
 
