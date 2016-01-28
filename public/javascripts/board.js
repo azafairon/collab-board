@@ -13,10 +13,11 @@ var Board = new function (){
 	};
 
 	this.addNote = function() {
-		//include note and add to the set in the board
+
 		var note = paper.rect(100,100,100,100);
 
 		note.attr({fill:"orange"});
+		note.attr({label:"orange"});
 		note.id = id_element;
 
 		note.drag(dragMove, dragStart, dragEnd);
@@ -38,7 +39,15 @@ var Board = new function (){
 
 		paper.add(note);
 
+		board.getBoardElements();
+
 	};
+
+	this.getBoardElements = function() {
+		console.log(paper);
+	};
+
+	// Sockets communication
 
 	this.sendPosition = function(id,transform) {
 		socket.emit('position',{id_note:id,transform:transform});

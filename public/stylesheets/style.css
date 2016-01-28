@@ -1,5 +1,5 @@
 body {
-	padding: 50px;
+	padding: 10px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	background: #63856a; /* Old browsers */
 	background: -moz-radial-gradient(center, ellipse cover,  #63856a 1%, #3c5a40 100%); /* FF3.6+ */
@@ -13,14 +13,15 @@ body {
 
 .sidebar-nav {
 	float:left;
-	width:5%
+	width:5%;
+	padding:10px;
 
 }
 
 .board {
 	border-radius: 25px;
-	border: 1px solid black;
-	width:95%;
-	height:600px;
+	border: 5px solid black;
+	width:1200px;
+	height:500px;
 	float:left;
 }
