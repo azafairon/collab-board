@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/jquery-ui.css' />
-    <link rel='stylesheet' href='/stylesheets/notes.css' />
-   <script src="/socket.io/socket.io.js"></script>
-   <script src="javascripts/jquery-1.12.0.min.js"></script>
-   <script src="javascripts/jquery-ui.min.js"></script>
-   <script src="javascripts/raphael-min.js"></script>
-   <script src="javascripts/widgets.js"></script>
-  </head>
-  <body>
-	  <div id = "1" class ="dragme note yellow" style="width: 150px; height: 150px; padding: 0.5em"></div>
-	  <div id = "2" class ="dragme note blue" style="width: 150px; height: 150px; padding: 0.5em"></div>
-	  <div id = "3" class ="dragme note green" style="width: 150px; height: 150px; padding: 0.5em"></div>
-  </body>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel='stylesheet' href='/stylesheets/jquery-ui.css' />
+		<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+
+		<link rel='stylesheet' href='/stylesheets/notes.css' />
+
+
+	</head>
+
+<body>
+
+
+	<div class="sidebar-nav">
+		<div class="btn-group-vertical">
+			<button id="btnAddNote" type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+ <!-- <div id = "1" class ="dragme note yellow" style="width: 150px; height: 150px; padding: 0.5em"></div> -->
+	<div class="board">
+		<div id="paper"></div>
+	</div>
+</body>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="javascripts/jquery-1.12.0.min.js"></script>
+		<script src="javascripts/jquery-ui.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<script src="javascripts/raphael-min.js"></script>
+		<script src="javascripts/board.js"></script>
+		<script src="javascripts/widgets.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		Board.init("paper",1200,500);
+
+		$(document).ready(function(){
+				$("#btnAddNote").bind('click',function(){
+					Board.addNote();
+					Board.sendNewNote();
+				});
+		});
+	</script>
+
 </html>
+
+

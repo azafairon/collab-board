@@ -1,8 +1,27 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 10px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background: #63856a; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #63856a 1%, #3c5a40 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%,#63856a), color-stop(100%,#3c5a40)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #63856a 1%,#3c5a40 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #63856a 1%,#3c5a40 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #63856a 1%,#3c5a40 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #63856a 1%,#3c5a40 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63856a', endColorstr='#3c5a40',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-a {
-  color: #00B7FF;
+.sidebar-nav {
+	float:left;
+	width:5%;
+	padding:10px;
+
+}
+
+.board {
+	border-radius: 25px;
+	border: 5px solid black;
+	width:1200px;
+	height:500px;
+	float:left;
 }
