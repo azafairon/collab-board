@@ -47,7 +47,6 @@ var Board = new function (){
 
 		paper.add(note);
 
-		board.getBoardElements();
 
 	};
 
