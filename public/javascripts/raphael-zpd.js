@@ -35,7 +35,7 @@
 
 var raphaelZPDId = 0;
 
-RaphaelZPD = function(raphaelPaper, o,callback) {
+RaphaelZPD = function(raphaelPaper, o) {
     function supportsSVG() {
         return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1");
     }
@@ -48,7 +48,7 @@ RaphaelZPD = function(raphaelPaper, o,callback) {
 
 	me.initialized = false;
 	me.opts = { 
-		zoom: true, pan: true, drag: true, // Enable/disable core functionalities.
+		zoom: true, pan: true, drag: true, callback:{},// Enable/disable core functionalities.
 		zoomThreshold: null, // Zoom [out, in] boundaries. E.g [-100, 10].
 	};
 
@@ -163,7 +163,7 @@ RaphaelZPD = function(raphaelPaper, o,callback) {
 		element.setAttribute("transform", s);
 		// we only notify if it is not the viewport
 		if (element.id !=="viewport" + me.id)
-			callback(element,s);
+			me.opts.callback(element.id,s);
 	};
 
 	/**

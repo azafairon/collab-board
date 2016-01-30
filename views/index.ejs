@@ -17,6 +17,7 @@
 	<div class="sidebar-nav">
 		<div class="btn-group-vertical">
 			<button id="btnAddNote" type="button" class="btn btn-default">
+				Note
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			</button>
 		</div>
@@ -32,9 +33,11 @@
 		<script src="javascripts/jquery-ui.min.js"></script>
 		<script src="javascripts/bootstrap.min.js"></script>
 		<script src="javascripts/raphael-min.js"></script>
-		<script src="javascripts/board.js"></script>
 		<script src="javascripts/raphael-zpd.js"></script>
-		<script src="javascripts/widgets.js"></script>
+
+
+		<script src="javascripts/board.js"></script>
+		<script src="javascripts/elements.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
 
@@ -42,8 +45,8 @@
 
 		$(document).ready(function(){
 				$("#btnAddNote").bind('click',function(){
-					Board.addNote();
-					Board.sendNewNote();
+					var element = Board.addElement('note');
+					Board.sendNewElement(element);
 				});
 		});
 	</script>
