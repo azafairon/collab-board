@@ -62,21 +62,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-//start listen with socket.io
-app.io.on('connection', function(socket){
-	socket.on('position', function( data, session ) {
-		socket.broadcast.emit( 'update_position', data );
-	})
-
-	socket.on('size', function( data, session ) {
-		socket.broadcast.emit( 'update_size', data );
-	})
-
-	socket.on('addNote', function( data, session ) {
-		socket.broadcast.emit( 'addNote', data );
-	})
-});
+Communication(io);
 
 
 module.exports = app;
