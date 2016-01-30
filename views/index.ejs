@@ -21,7 +21,7 @@
 			</button>
 		</div>
 	</div>
- <!-- <div id = "1" class ="dragme note yellow" style="width: 150px; height: 150px; padding: 0.5em"></div> -->
+
 	<div class="board">
 		<div id="paper"></div>
 	</div>
@@ -34,11 +34,12 @@
 		<script src="javascripts/bootstrap.min.js"></script>
 		<script src="javascripts/raphael-min.js"></script>
 		<script src="javascripts/board.js"></script>
+		<script src="javascripts/raphael-zpd.js"></script>
 		<script src="javascripts/widgets.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
 
-		Board.init("paper",1200,500);
+		Board.init("paper",1000,1000);
 
 		$(document).ready(function(){
 				$("#btnAddNote").bind('click',function(){

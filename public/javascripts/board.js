@@ -8,32 +8,40 @@ var Board = new function (){
 	this.paper = null;
 
 
-	this.init = function (container,x,y) {
+	this.init = function (container, x, y) {
+
 		paper = Raphael(container,x,y);
+
+		//creating pan and zoom
+		var zpd = new RaphaelZPD(paper, { zoom: true, pan: true, drag: true },board.logElement);
 	};
 
 	this.addNote = function() {
 
 		var note = paper.rect(100,100,100,100);
 
-		note.attr({fill:"orange"});
-		note.attr({label:"orange"});
+		$(note.node).attr('id',id_element);
+		$(note.node).addClass('note');
+
 		note.id = id_element;
 
-		note.drag(dragMove, dragStart, dragEnd);
 
-		function dragStart(x,y,e) {
-			this.current_transform = this.transform();
-		};
+		//note.drag(dragMove, dragStart, dragEnd);
+
+		note.draggable = true;
+
+		 function dragStart(x,y,e) {
+		 	this.current_transform = this.transform();
+		 };
 
 		function dragMove(dx,dy,x,y,e) {
 			this.transform(this.current_transform + 'T' + dx + ',' + dy);
 			board.sendPosition(note.id,this.transform());
-		};
+		 };
 
-		function dragEnd (e) {
-			this.current_transform = this.transform();
-		};
+		 function dragEnd (e) {
+		 	this.current_transform = this.transform();
+		 };
 
 		id_element ++;
 
@@ -47,6 +55,10 @@ var Board = new function (){
 		console.log(paper);
 	};
 
+	this.logElement = function(id,transform) {
+		board.sendPosition(id.id,transform);
+	};
+
 	// Sockets communication
 
 	this.sendPosition = function(id,transform) {
@@ -58,7 +70,10 @@ var Board = new function (){
 	};
 
 	socket.on('update_position',function(data){
-		var note = paper.getById(data.id_note).transform(data.transform);
+		//var note = paper.getById(data.id_note).transform(data.transform);
+		// element.setAttribute("transform", data.transform);
+		// var note = paper.getById(data.id_note).setAttribute('transform',data.transform);
+		$('#' + data.id_note).attr('transform',data.transform);
 	});
 
 	socket.on('addNote',function(data){
